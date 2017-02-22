@@ -842,3 +842,90 @@ Processing by RestaurantsController#edit as HTML
 Completed 200 OK in 354ms (Views: 277.6ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/restaurants" for 127.0.0.1 at 2017-02-22 11:12:21 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (7.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.haml within layouts/application
+  [1m[35m (6.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[36mReview Load (12.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  Rendered restaurants/index.html.haml within layouts/application (103.0ms)
+Completed 200 OK in 465ms (Views: 406.8ms | ActiveRecord: 35.9ms)
+
+
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-02-22 11:12:24 +0000
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.haml within layouts/application
+  Rendered restaurants/new.html.haml within layouts/application (31.5ms)
+Completed 200 OK in 61ms (Views: 56.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for 127.0.0.1 at 2017-02-22 11:12:28 +0000
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"jAt6Qpih+nne3O7ZY2wXLGCF4/7FURlf0GsKt6k68MXhkvsN8LWn1GIA+uZ5i7d37G2O9ZufewJ7dlZZfPn3EQ==", "restaurant"=>{"name"=>"we", "description"=>""}, "commit"=>"Create Restaurant"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering restaurants/new.html.haml within layouts/application
+  Rendered restaurants/new.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 36ms (Views: 32.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2017-02-22 11:20:26 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.haml within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  Rendered restaurants/index.html.haml within layouts/application (66.2ms)
+Completed 200 OK in 421ms (Views: 388.5ms | ActiveRecord: 12.1ms)
+
+
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-02-22 11:20:30 +0000
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.haml within layouts/application
+  Rendered restaurants/new.html.haml within layouts/application (34.5ms)
+Completed 200 OK in 66ms (Views: 63.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for 127.0.0.1 at 2017-02-22 11:20:34 +0000
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AQ1yoVYfN6m8/0408/sDku9j/InBTSR0IbiKlUKDH+NslPPuPgtqBAAjWgvpHKPJY4uRgp+DRimKpdZ7l0AYNw==", "restaurant"=>{"name"=>"ts", "description"=>""}, "commit"=>"Create Restaurant"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering restaurants/new.html.haml within layouts/application
+  Rendered restaurants/new.html.haml within layouts/application (5.5ms)
+Completed 200 OK in 36ms (Views: 32.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2017-02-22 11:24:58 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RestaurantsController#index as HTML
+  Rendering restaurants/index.html.haml within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "restaurants"[0m
+  [1m[36mRestaurant Load (0.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  [1m[36mReview Load (1.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  Rendered restaurants/index.html.haml within layouts/application (93.1ms)
+Completed 200 OK in 499ms (Views: 451.3ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/restaurants/new" for 127.0.0.1 at 2017-02-22 11:25:04 +0000
+Processing by RestaurantsController#new as HTML
+  Rendering restaurants/new.html.haml within layouts/application
+  Rendered restaurants/new.html.haml within layouts/application (31.3ms)
+Completed 200 OK in 64ms (Views: 57.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/restaurants" for 127.0.0.1 at 2017-02-22 11:25:07 +0000
+Processing by RestaurantsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+c3M6Ow3PvUcp5wmTalvlNP3bug0fAUJJhSUfr2uXgKUVE2nhCNjWKB7iBlXTs/PXx8D42qyZ1SNCciQaG1Z1g==", "restaurant"=>{"name"=>"ts", "description"=>""}, "commit"=>"Create Restaurant"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering restaurants/new.html.haml within layouts/application
+  Rendered restaurants/new.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 45ms (Views: 41.1ms | ActiveRecord: 0.3ms)
+
+

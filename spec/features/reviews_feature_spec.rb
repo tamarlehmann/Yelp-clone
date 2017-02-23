@@ -11,6 +11,12 @@ feature 'reviewing' do
   end
 
   scenario 'allows users to leave a review using a form' do
+    visit '/'
+    click_link 'Sign in'
+
+    fill_in 'Email', with: 'test@test.com'
+    fill_in 'Password', with: 'test123'
+    click_button 'Log in'
      visit '/restaurants'
      click_link 'Review KFC'
      save_and_open_page

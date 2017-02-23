@@ -11,7 +11,9 @@ feature "restaurants" do
 
   context 'restaurants have been added' do
     before do
-    Restaurant.create(name: 'KFC')
+    sign_up
+    add_restaurant
+    # Restaurant.create(name: 'KFC')
     end
 
     scenario 'display restaurants' do
@@ -45,23 +47,33 @@ feature "restaurants" do
   end
 
   context 'viewing restaurants' do
-    let!(:kfc){ Restaurant.create(name:'KFC') }
+    # before do
+    #   sign_up
+    #   add_restaurant
+    # end
+  before do
+    @user = User.create(email: 'test@test.com', password: 'test123')
+    @restaurant = @user.restaurants.create(name: 'KFC')
+  end
 
     scenario 'lets a user view a restaurant' do
-      sign_up
       visit '/restaurants'
       click_link 'KFC'
+        # save_and_open_page
+
       expect(page).to have_content 'KFC'
       #expect(page).to have_content 'Fried Chicken'
-      expect(current_path).to eq "/restaurants/#{kfc.id}"
+      expect(current_path).to eq "/restaurants/#{@restaurant.id}"
     end
   end
 
   context 'editing restaurants' do
-    before { Restaurant.create name: 'KFC', description: 'Deep fried goodness', id: 1 }
+    before do
+      sign_up
+      add_restaurant
+    end
 
       scenario 'let a user edit a restaurant' do
-        sign_up
         visit '/restaurants'
         click_link 'Edit KFC'
         fill_in 'Name', with: 'Kentucky Fried Chicken'
@@ -70,15 +82,16 @@ feature "restaurants" do
         click_link 'Kentucky Fried Chicken'
         expect(page).to have_content 'Kentucky Fried Chicken'
         expect(page).to have_content 'Deep fried goodness'
-        expect(current_path).to eq '/restaurants/1'
       end
   end
 
   context 'deleting restaurants' do
-    before { Restaurant.create name: 'KFC', description: 'Deep fried goodness' }
+    before do
+      sign_up
+      add_restaurant
+    end
 
     scenario 'removes a restaurant when a user clicks a delete link' do
-      sign_up
       visit '/restaurants'
       click_link 'Delete KFC'
       expect(page).not_to have_content 'KFC'

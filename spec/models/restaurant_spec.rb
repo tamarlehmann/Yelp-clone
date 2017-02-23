@@ -14,4 +14,12 @@ RSpec.describe Restaurant, type: :model do
     restaurant = Restaurant.new(name: "Moe's Tavern")
     expect(restaurant).to have(1).error_on(:name)
   end
+
+  context "associations" do
+    it 'belongs to a user and has many reviews' do
+      should have_many(:reviews)
+      should belong_to(:user)
+    end
+  end
+
 end

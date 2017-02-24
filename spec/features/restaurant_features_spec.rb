@@ -28,9 +28,11 @@ feature "restaurants" do
       sign_up
       click_link 'Add a restaurant'
       fill_in 'Name', with: 'KFC'
+      attach_file("restaurant_image", "spec/MakersLogo.jpeg")
       #fill_in 'description', with: 'Fried Chicken'
       click_button 'Create Restaurant'
       expect(page).to have_content 'KFC'
+      expect(page).to have_css 'img'
       expect(current_path).to eq '/restaurants'
     end
 
@@ -39,6 +41,7 @@ feature "restaurants" do
         sign_up
         click_link 'Add a restaurant'
         fill_in 'Name', with: 'kf'
+
         click_button 'Create Restaurant'
         expect(page).not_to have_css 'h2', text: 'kf'
         expect(page).to have_content 'error'
@@ -46,11 +49,12 @@ feature "restaurants" do
     end
   end
 
+  # image = 'spec/fixture/restaurant_test.jpg'
+  #     fill_in_restaurant_form(name: restaurant_name, description: restaurant_desc, image: image)
+  #     image_element = find('img')
+  #     expect(image_element['src']).to include('restaurant_test')
+
   context 'viewing restaurants' do
-    # before do
-    #   sign_up
-    #   add_restaurant
-    # end
   before do
     @user = User.create(email: 'test@test.com', password: 'test123')
     @restaurant = @user.restaurants.create(name: 'KFC')
@@ -62,7 +66,6 @@ feature "restaurants" do
         # save_and_open_page
 
       expect(page).to have_content 'KFC'
-      #expect(page).to have_content 'Fried Chicken'
       expect(current_path).to eq "/restaurants/#{@restaurant.id}"
     end
   end

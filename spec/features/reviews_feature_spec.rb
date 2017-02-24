@@ -19,7 +19,6 @@ feature 'reviewing' do
     click_button 'Log in'
      visit '/restaurants'
      click_link 'Review KFC'
-     save_and_open_page
      fill_in "Thoughts", with: "so so"
      select '3', from: 'Rating'
      click_button 'Leave Review'
